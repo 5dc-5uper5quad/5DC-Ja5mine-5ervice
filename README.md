@@ -42,5 +42,9 @@ From within the root directory:
 Testing
 - Mongoose MongoDB app: Mocha + chai.expect
 - React: jest + enzyme
+- GET uses '/games/:gameid' to add a new game document with purchase options 
+- POST uses '/games' and adds a game purchase options to the database
+- PUT uses '/games/:gameid' updates game purchase options by game_id for specifc game
+- DELETE uses '/games/:gameid' to find a game_id and delete it, returns deleted game purchase options
 
 
