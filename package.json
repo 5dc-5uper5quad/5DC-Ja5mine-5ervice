@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node ./server/index.js",
     "seed-db": "node ./database/data/seedDB.js",
+    "mock-seed": "node ./database/datageneration.js",
     "start:dev": "nodemon ./server/index.js",
     "react-dev": "webpack -d --watch",
     "test:jest": "jest",
@@ -21,6 +22,7 @@
     "express": "^4.17.0",
     "jest-cli": "^24.8.0",
     "jquery": "^3.4.1",
+    "json2csv": "^4.5.1",
     "mongoose": "^5.5.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

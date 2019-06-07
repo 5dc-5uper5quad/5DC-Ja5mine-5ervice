@@ -1,5 +1,5 @@
 var faker = require('faker');
-var { getImageURLs, getLogoURLs }= require('./imagesAWS');
+var { getImageURLs, getLogoURLs } = require('./imagesAWS');
 
 var gameTypes = ['farm','fps','car', 'food', 'casino', 'puzzle', 'sports', 'board', 'alien', 'medieval'];
 var user_tags = {
@@ -29,7 +29,7 @@ var getData = (num, cb) => {
 
     getLogoURLs(OS, (dataArr) => {
       let osURLS = dataArr;
-
+      //this array takes in a number from seedDB.js
       for (var i = 0; i < numGames; i++) {
         var percent = Math.ceil(Math.random()* 100);
         var randOSindex = Math.ceil(Math.random()*OS.length);
