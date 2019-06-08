@@ -7,3 +7,4 @@ jest.config.js
 enzyme.config.js
 coverage
 jest-mongodb-config.js
+logfile
