@@ -10,10 +10,10 @@ const reviewsOverall = ['very positive', 'mostly positive', ' positive', 'mixed'
 
 //Should create fake data and insert it into the mockData.csv file 
 
-async function createCSVData (filename, iteration) {
-  //create a simple games object with the following data, in a stringified format 
-  const Games = [];
-  for (var i = 0; i < iteration; i++) {
+async function createCSVData () {
+  //creating a json object and then converting it into a csv
+  var Games = [];
+  for (let i = 0; i < 100000; i++) {
     const gameJSON = 
       {
         "game_id": i,
@@ -29,7 +29,7 @@ async function createCSVData (filename, iteration) {
   const json2csvParser = new Parser({ fields });
   const csv = json2csvParser.parse(Games);
 
-  fs.writeFile(filename, csv, (err) => {
+  fs.appendFile('mockData.csv', csv, (err) => {
     if (err) { 
       console.log(err)
     } else {
@@ -38,20 +38,24 @@ async function createCSVData (filename, iteration) {
   });
   return csv;
 }
-
-const csvData = createCSVData('mockData.csv', 1000000);
-
-csvData.then(function (results) {
+//this runs once
+createCSVData().then(function (results) {
   console.log("CSV files successfully created and added!");
-  console.log(results);
 }).catch(function () {
-  console.log("CSV files were not successfully created or added.");
+  console.log("CSV files were not successfully created or added");
 });
 
 async function batchData () {
-  const iteration = 5;
-  for (let i = 0; i < iteration; i++) {
-    await csvData();
+  var start = Date.now();
+  console.log('starting to batch Data....');
+
+  for (let i = 0; i < 100; i++) {
+    console.log(i);
+    await createCSVData();
   }
   console.log('Database successfully seeded!')
-}
+  var millis = Date.now() - start;
+  console.log("seconds elapsed = " + Math.floor(millis/1000));
+};
+
+batchData();
