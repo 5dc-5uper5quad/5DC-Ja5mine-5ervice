@@ -24,6 +24,10 @@ From within the root directory:
 > launch MongoDB server
   - app will create a db /purchaseoptionsservice
   > npm run seed-db
+> mock data creation for 10M entries
+  -  npm run mock-seed
+> start up psql -> It can be activated for the games database by typing the command:
+  -  $ psql games
 
 ## Notes
 - seed-db script inserts an array of 100 items into the database at once
@@ -32,19 +36,21 @@ From within the root directory:
 - update index.jsx (line 196: where <App/> is rendered) to receive a gameid (Number between 1-100) as props instead of an empty string
 - index.jsx uses variables gridContainer, col1, col2 to pad space to the left of the module so that the popover feature has an empty div to 'popover'. These are currently commented out.
 - index.html file specifies a bgcolor tag, consider moving this to proxy for color consistency behind all modules
+- if postgreSQL is not already installed on your machine, you will have to do so and create a games database
 
 ## Requirements
 - Node 8.11.3
 - Mongo shell 4.0.9
 - Bundling with webpack + Babel7
+- PostgreSQL 11.3
 
 ## Development
 Testing
-- Mongoose MongoDB app: Mocha + chai.expect
-- React: jest + enzyme
+
 - GET uses '/games/:gameid' to add a new game document with purchase options 
 - POST uses '/games' and adds a game purchase options to the database
 - PUT uses '/games/:gameid' updates game purchase options by game_id for specifc game
 - DELETE uses '/games/:gameid' to find a game_id and delete it, returns deleted game purchase options
-
+- Mongoose MongoDB app: Mocha + chai.expect
+- React: jest + enzyme
 

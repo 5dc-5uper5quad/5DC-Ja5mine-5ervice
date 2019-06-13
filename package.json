@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node ./server/index.js",
     "seed-db": "node ./database/data/seedDB.js",
-    "mock-seed": "node --max_old_space_size=8000 database/datageneration.js",
+    "mock-seed": "node --max_old_space_size=8000 database/data/datageneration.js",
     "start:dev": "nodemon ./server/index.js",
     "react-dev": "webpack -d --watch",
     "test:jest": "jest",
@@ -25,6 +25,7 @@
     "json2csv": "^4.5.1",
     "mongoose": "^5.5.11",
     "pg": "^7.11.0",
+    "pg-query": "^0.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
