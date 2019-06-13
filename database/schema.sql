@@ -2,6 +2,7 @@ DROP DATABASE steam;
 CREATE DATABASE steam;
 
 CREATE TABLE games (
+  game_id        SERIAL PRIMARY KEY,
   game_name      TEXT,
   game_type      TEXT,
   original_price NUMERIC,

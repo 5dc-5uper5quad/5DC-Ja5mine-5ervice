@@ -12,7 +12,7 @@ const reviewsOverall = ['very positive', 'mostly positive', ' positive', 'mixed'
 async function createCSVData (iteration) {
   //create a json object
   var Games = [];
-  for (let i = 0; i < 500000; i++) {
+  for (let i = 0; i < 50000; i++) {
     const gameJSON = 
       {
         "game_name": faker.commerce.productAdjective() + ' ' + faker.company.catchPhraseNoun(),
@@ -48,7 +48,7 @@ async function createCSVData (iteration) {
   async function batchData () {
     var start = Date.now();
     console.log('starting to batch Data....');
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 1; i++) {
       console.log(i);
       await createCSVData(i);
     }

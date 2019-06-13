@@ -1,7 +1,13 @@
 var seeder = require('../database/data/datageneration');
 var pgdb = require('../database/pgIndex');
 
+module.exports = {
 
+  get: function(callback) {
+    
+  }
+
+}
 // TODO:
 
 // 1 create smaller chunks of data, send to DB
