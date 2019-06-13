@@ -9,3 +9,5 @@ coverage
 jest-mongodb-config.js
 logfile
 mockData.csv
+database/data/gamesGenerator.js
+mockDataGamesLoops.csv

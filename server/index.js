@@ -1,8 +1,10 @@
 const express = require('express');
 var { Games } = require('../database/index');
+const bodyParser = require('body-parser');
 
 let app = express();
 const port = 3003;
+
 
 app.use(express.static(__dirname+'/../client/dist'));
 
