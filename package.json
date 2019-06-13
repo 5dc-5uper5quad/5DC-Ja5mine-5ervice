@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node ./server/index.js",
     "seed-db": "node ./database/data/seedDB.js",
-    "mock-seed": "node --max_old_space_size=8000 database/data/datageneration.js",
+    "seed-games": "node --max_old_space_size=8000 database/data/gamesDataGenerator.js",
+    "seed-dlcs":"node --max_old_space_size=8000 database/data/dlcDataGenerator.js",
     "start:dev": "nodemon ./server/index.js",
     "react-dev": "webpack -d --watch",
     "test:jest": "jest",
