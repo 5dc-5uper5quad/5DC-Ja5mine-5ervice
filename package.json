@@ -10,7 +10,7 @@
     "start": "node ./server/index.js",
     "seed-db": "node ./database/data/seedDB.js",
     "seed-games": "node database/data/gamesDataGenerator.js",
-    "seed-dlcs":"node database/data/dlcDataGenerator.js",
+    "seed-dlcs": "node database/data/dlcDataGenerator.js",
     "start:dev": "nodemon ./server/index.js",
     "react-dev": "webpack -d --watch",
     "test:jest": "jest",
@@ -19,6 +19,7 @@
     "test:mocha": "mocha ./database/dbMocha.js"
   },
   "dependencies": {
+    "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
     "express": "^4.17.0",
     "jest-cli": "^24.8.0",
@@ -26,9 +27,11 @@
     "json2csv": "^4.5.1",
     "mongoose": "^5.5.11",
     "pg": "^7.11.0",
+    "pg-promise": "^8.7.2",
     "pg-query": "^0.11.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "sequelize": "^5.8.9"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

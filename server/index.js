@@ -1,19 +1,21 @@
 const express = require('express');
-var { Games } = require('../database/index');
+// var { Games } = require('../database/index');
 const bodyParser = require('body-parser');
+const pgdb = require('../database/postgres');
 
 let app = express();
 const port = 3003;
-
+var router = require('../routes');
 
 app.use(express.static(__dirname+'/../client/dist'));
+app.use('/games', router);
 
-app.get('/games/:gameid', (req, res) => {
-  let id = req.params.gameid;
-  Games.find({ game_id: id }).limit(1).exec((err, queryResults) => {
-    res.json(queryResults[0]);
-  });
-});
+// app.get('/games/:gameid', (req, res) => {
+//   let id = req.params.gameid;
+//   Games.find({ game_id: id }).limit(1).exec((err, queryResults) => {
+//     res.json(queryResults[0]);
+//   });
+// });
 
 //post new game 
 app.post('/games'), (req, res) => {
