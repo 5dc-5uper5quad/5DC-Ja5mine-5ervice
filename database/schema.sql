@@ -10,13 +10,14 @@ CREATE TABLE games (
   os             TEXT
 );
 
-CREATE TABLE dlc (
+CREATE TABLE dlcs  (
   dlc_name         TEXT,
   price            NUMERIC,
   release_date     TEXT,
   user_reviews_num INT,
   user_tags        TEXT,
-  images           TEXT
+  images           TEXT,
+  game_id INTEGER NOT NULL REFERENCES games(game_id)
 );
 
 
