@@ -11,5 +11,5 @@ logfile
 mockData.csv
 database/data/gamesGenerator.js
 mockDataGamesLoops.csv
-mockDataDlcs.csv
 mockDataGames.csv
+mockDataDlcs.csv

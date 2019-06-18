@@ -36,6 +36,7 @@ let GameAddOns = (props) => {
 
   let dlcs = [];
   for (let item of props.dlcs) {
+    console.log(item);
     dlcs.push(< DLC key={item.dlc_name} content={item}/>);
   }
 

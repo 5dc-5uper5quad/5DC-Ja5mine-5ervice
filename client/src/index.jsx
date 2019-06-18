@@ -15,7 +15,7 @@ class App extends React.Component {
   componentDidMount() {
     // If props.gameID not given, randomly generates a game id between 1-100
     var id;
-    this.props.gameid !== '' ? id = this.props.gameid : id = Math.floor(Math.random() * 100);
+    this.props.gameid !== '' ? id = this.props.gameid : id = Math.floor(Math.random() * 500000);
     // id = window.location.pathname;
     // if (id.length === 1) { id = '2' }
     // else { id = id.slice(1,1) }
@@ -30,10 +30,13 @@ class App extends React.Component {
         salePercent: data.sale_percentage,
         salePrice: getSalePrice(data.original_price, data.sale_percentage),
         os: data.os, // TODO find better mac logo
-        dlcCount: data.dlcs.length,
-        dlcData: data.dlcs
       });
     });
+    $.get(`http://localhost:3003/dlcs`, (data) => {
+      this.setState({
+        dlcData: data
+      })
+    })
   }
 
   // TODO on mouseHover for franchise banner
@@ -108,14 +111,14 @@ class App extends React.Component {
     };
 
     const eachLogoStyle = {
-      height: '100%',
-      width: 'auto'
+      height: '40px',
+      width: '35px'
     };
 
     let osLogos = [];
-    if (this.state.os !== undefined) {
-      for (let image of this.state.os) {
-        osLogos.push(<img src={image} alt='OS logo' style={eachLogoStyle}></img>);
+    if (this.state.dlcData !== undefined) {
+      for (let dlc of this.state.dlcData) {
+        osLogos.push(<img src={dlc.images} alt='OS logo' style={eachLogoStyle}></img>);
       }
     }
 

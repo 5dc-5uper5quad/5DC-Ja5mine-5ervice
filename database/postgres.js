@@ -1,7 +1,7 @@
-const promise = require('bluebird'); // or any other Promise/A+ compatible library;
+const Promise = require('bluebird'); // or any other Promise/A+ compatible library;
 
 const initOptions = {
-    promiseLib: promise // overriding the default (ES6 Promise);
+    promiseLib: Promise // overriding the default (ES6 Promise);
 };
 
 const pgp = require('pg-promise')(initOptions);

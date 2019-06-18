@@ -16,8 +16,9 @@ var user_tags = {
   alien: ['sci-fi', 'space'],
   medieval: ['magic', 'dragons']
 };
-const gameTypes = ['farm', 'fps', 'car', 'food', 'casino', 'puzzle', 'sports', 'board', 'alien', 'medieval'];
-const gameType = gameTypes[Math.floor(Math.random() * gameTypes.length)];
+var gameTypes = ['farm', 'fps', 'car', 'food', 'casino', 'puzzle', 'sports', 'board', 'alien', 'medieval'];
+var gameType = gameTypes[Math.floor(Math.random() * gameTypes.length)];
+var userTag = user_tags[Math.ceil(Math.random() * Object.keys(user_tags).length - 1)]
 const OS = ['windows', 'mac', 'linux'];
 const reviewsOverall = ['very positive', 'mostly positive', ' positive', 'mixed', 'negative', 'mostly negative', 'very negative'];
 
@@ -49,7 +50,7 @@ function createCSVData() {
       //     images.push(imageURLs[gameType][bottomIndex]);
       //     bottomIndex++;
       //   }
-        dlcFile.write(`"${faker.commerce.productAdjective() + ' - ' + faker.lorem.words(3)}","${faker.commerce.price(0,200,2)}","${faker.date.recent(600).toDateString().substr(4)}","${faker.random.number(2000)}","${user_tags[gameType]}","${'https://picsum.photos/200/300'}", ${i}\n`);
+        dlcFile.write(`"${faker.commerce.productAdjective() + ' - ' + faker.lorem.words(3)}","${faker.commerce.price(0,200,2)}","${faker.date.recent(600).toDateString().substr(4)}","${faker.random.number(2000)}","${userTag}","${'https://picsum.photos/200/300'}", ${i}\n`);
       // });
     };
   var millis = Date.now() - start;
