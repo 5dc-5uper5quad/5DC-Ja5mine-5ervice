@@ -15,7 +15,7 @@ class App extends React.Component {
   componentDidMount() {
     // If props.gameID not given, randomly generates a game id between 1-100
     var id;
-    this.props.gameid !== '' ? id = this.props.gameid : id = Math.floor(Math.random() * 500000);
+    this.props.gameid !== '' ? id = this.props.gameid : id = Math.floor(Math.random() * 9999999);
     // id = window.location.pathname;
     // if (id.length === 1) { id = '2' }
     // else { id = id.slice(1,1) }

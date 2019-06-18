@@ -1,3 +1,4 @@
+const nr = require('newrelic');
 const express = require('express');
 // var { Games } = require('../database/index');
 const bodyParser = require('body-parser');
@@ -23,11 +24,11 @@ app.get('/games/:gameid', (req, res) => {
   var queryString = `SELECT * FROM games WHERE game_id = $1`;
     pgdb.one(queryString, id)
       .then(function(data) {
-        console.log('Game succssfully selected!', data);
+        //console.log('Game succssfully selected!', data);
         res.json(data);
       })
       .catch(function(error) {
-        console.log('There was an error with the game request!', error);
+        //console.log('There was an error with the game request!', error);
       });
 });
 
@@ -41,28 +42,27 @@ app.get('/dlcs', (req, res) => {
   var queryDlc = `SELECT * FROM dlcs WHERE game_id BETWEEN $1 AND $2`;
   pgdb.any(queryDlc, [firstNum, secondNum])
   .then(function(data) {
-    console.log('DLC succssfully selected!', data);
+    //console.log('DLC succssfully selected!', data);
     res.json(data);
   })
   .catch(function(error) {
-    console.log('There was an error with the DLC request!', error);
+    //console.log('There was an error with the DLC request!', error);
   });
 })
-
-
 
 //post new game 
 app.post('/games'), (req, res) => {
   console.log('Req body post', req.body);
-
-  const newGame = new Games(req.body);
-  newGame.save((err) => {
-    if (err) {
-      console.log('ERROR', err);
-    } else {
-      res.status(201);
-    }
-  })
+  var body = req.body;
+  var queryString = `INSERT INTO games(id, doc) VALUES(${this})`;
+    pgdb.none(queryString, body)
+      .then(function(data) {
+        console.log('Game succssfully selected!', data);
+        res.json(data);
+      })
+      .catch(function(error) {
+        console.log('There was an error with the game request!', error);
+      });
 };
 
 //update game based onid
